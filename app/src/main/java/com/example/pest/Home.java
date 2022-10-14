@@ -16,14 +16,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.pest.ml.BestFp16;
-
-import org.tensorflow.lite.DataType;
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
-
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 
 public class Home extends AppCompatActivity {
 
@@ -63,9 +56,9 @@ public class Home extends AppCompatActivity {
         });
     }
 
-    public void classifyImage(Bitmap image){
+    /* public void classifyImage(Bitmap image){
         try {
-            BestFp16 model = BestFp16.newInstance(getApplicationContext());
+            Sample model = Sample.newInstance(getApplicationContext());
 
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 416,416, 3}, DataType.FLOAT32);
@@ -90,7 +83,7 @@ public class Home extends AppCompatActivity {
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            BestFp16.Outputs outputs = model.process(inputFeature0);
+            Sample.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();
@@ -111,7 +104,7 @@ public class Home extends AppCompatActivity {
         } catch (IOException e) {
             // TODO Handle the exception
         }
-    }
+    } */
 
 
     @Override
@@ -125,7 +118,7 @@ public class Home extends AppCompatActivity {
                 imageView.setImageBitmap(image);
 
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-                classifyImage(image);
+                // classifyImage(image);
 
             }
 
@@ -140,7 +133,7 @@ public class Home extends AppCompatActivity {
                 }
                 imageView.setImageBitmap(image);
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-                classifyImage(image);
+                // classifyImage(image);
 
             }
         }
