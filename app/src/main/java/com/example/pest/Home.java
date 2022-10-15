@@ -1,6 +1,7 @@
 package com.example.pest;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -15,20 +16,26 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import java.io.IOException;
 
 public class Home extends AppCompatActivity {
 
+    DrawerLayout drawerLayout;
     Button camera, gallery;
     ImageView imageView;
     TextView result;
     int imageSize = 416;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         camera = findViewById(R.id.button);
         gallery = findViewById(R.id.button2);
@@ -59,16 +66,13 @@ public class Home extends AppCompatActivity {
     /* public void classifyImage(Bitmap image){
         try {
             Sample model = Sample.newInstance(getApplicationContext());
-
             // Creates inputs for reference.
             TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 416,416, 3}, DataType.FLOAT32);
             ByteBuffer byteBuffer = ByteBuffer.allocateDirect(1 * imageSize * imageSize * 3);
             byteBuffer.order(ByteOrder.nativeOrder());
-
             // get 1D array of _ * _ pixels in image
             int [] intValues = new int[imageSize * imageSize];
             image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
-
             // iterate over pixels and extract R, G, and B values. Add to bytebuffer.
             int pixel = 0;
             for(int i = 0; i < imageSize; i++){
@@ -79,13 +83,10 @@ public class Home extends AppCompatActivity {
                     byteBuffer.putFloat((val & 0xFF) * (1.f / 255.f));
                 }
             }
-
             inputFeature0.loadBuffer(byteBuffer);
-
             // Runs model inference and gets result.
             Sample.Outputs outputs = model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
-
             float[] confidences = outputFeature0.getFloatArray();
             // find the index of the class with the biggest confidence.
             int maxPos = 0;
@@ -98,7 +99,6 @@ public class Home extends AppCompatActivity {
             }
             String[] classes = {"Whiteflies", "Orange", "Pen", "Sticky Notes"};
             result.setText(classes[maxPos]);
-
             // Releases model resources if no longer used.
             model.close();
         } catch (IOException e) {
@@ -109,9 +109,9 @@ public class Home extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(resultCode == RESULT_OK){
+        if (resultCode == RESULT_OK) {
 
-            if(requestCode == 3){
+            if (requestCode == 3) {
                 Bitmap image = (Bitmap) data.getExtras().get("data");
                 int dimension = Math.min(image.getWidth(), image.getHeight());
                 image = ThumbnailUtils.extractThumbnail(image, dimension, dimension);
@@ -120,9 +120,7 @@ public class Home extends AppCompatActivity {
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
                 // classifyImage(image);
 
-            }
-
-            else {
+            } else {
                 Uri dat = data.getData();
                 Bitmap image = null;
 
@@ -139,5 +137,117 @@ public class Home extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
+    public void ClickMenu(View view) {
+
+        openDrawer(drawerLayout);
+
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+
+        drawerLayout.openDrawer(GravityCompat.START);
+
+    }
+
+    public void ClickLogo(View view) {
+
+        closeDrawer(drawerLayout);
+
+
+    }
+
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+
+
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+
+
+    }
+
+    public void ClickHome(View view) {
+
+        recreate();
+    }
+
+    public void ClickHistory(View view) {
+
+        redirectActivity(this, History.class);
+
+    }
+
+    public void ClickAboutUs(View view) {
+
+        redirectActivity(this, AboutUs.class);
+
+    }
+
+    public static void redirectActivity(Activity activity, Class aClass) {
+
+        Intent intent = new Intent(activity, aClass);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivity(intent);
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
+    }
+
+
 }
 
+
+/*    Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        if(savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new homescreen()).commit();
+            navigationView.setCheckedItem(R.id.Home);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.Home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new homescreen()).commit();
+                break;
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+
+}
+
+
+    */
