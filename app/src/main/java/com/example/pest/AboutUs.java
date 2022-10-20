@@ -28,6 +28,14 @@ public class AboutUs extends AppCompatActivity {
         Home.redirectActivity(this, Home.class);
     }
 
+    public void ClickLogo(View view) {
+
+        Home.closeDrawer(drawerLayout);
+
+
+    }
+
+
     public void ClickHistory(View view) {
 
         Home.redirectActivity(this, History.class);

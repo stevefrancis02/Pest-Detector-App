@@ -23,10 +23,18 @@ public class History extends AppCompatActivity {
         Home.openDrawer(drawerLayout);
     }
 
+    public void ClickLogo(View view) {
+
+        Home.closeDrawer(drawerLayout);
+
+
+    }
+
     public void ClickHome(View view) {
 
-        Home.redirectActivity(this, Home.class);
+        Home.redirectActivity(this,Home.class);
     }
+
 
     public void ClickHistory(View view) {
 
@@ -35,7 +43,7 @@ public class History extends AppCompatActivity {
 
     public void ClickAboutUs(View view) {
 
-        Home.redirectActivity(this, AboutUs.class);
+        Home.redirectActivity(this,AboutUs.class);
 
     }
 

@@ -43,6 +43,8 @@ public class Home extends AppCompatActivity {
         result = findViewById(R.id.result);
         imageView = findViewById(R.id.imageView);
 
+
+
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,7 +140,6 @@ public class Home extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
     public void ClickMenu(View view) {
 
         openDrawer(drawerLayout);
@@ -176,19 +177,19 @@ public class Home extends AppCompatActivity {
 
     public void ClickHistory(View view) {
 
-        redirectActivity(this, History.class);
+        redirectActivity(this,History.class);
 
     }
 
     public void ClickAboutUs(View view) {
 
-        redirectActivity(this, AboutUs.class);
+        redirectActivity(this,AboutUs.class);
 
     }
 
     public static void redirectActivity(Activity activity, Class aClass) {
 
-        Intent intent = new Intent(activity, aClass);
+        Intent intent = new Intent(activity,aClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
 
