@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
+@SuppressWarnings("rawtypes")
 public class Home extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
@@ -44,11 +45,13 @@ public class Home extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
+
         camera = findViewById(R.id.button);
         gallery = findViewById(R.id.button2);
 
         result = findViewById(R.id.result);
         imageView = findViewById(R.id.imageView);
+
 
 
 
@@ -184,9 +187,9 @@ public class Home extends AppCompatActivity {
 
     }
 
-    public void ClickHome(View view) {
+    public void ClickHome (View view) {
 
-        recreate();
+        closeDrawer(drawerLayout);
     }
 
     public void ClickHistory(View view) {
@@ -201,7 +204,7 @@ public class Home extends AppCompatActivity {
 
     }
 
-    public static void redirectActivity(Activity activity,Class aClass) {
+     public static void redirectActivity(Activity activity,Class aClass) {
 
         Intent intent = new Intent(activity,aClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

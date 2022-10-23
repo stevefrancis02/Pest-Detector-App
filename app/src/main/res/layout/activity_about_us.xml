@@ -12,12 +12,35 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include
-            layout="@layout/main_toolbar"
-            />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="299dp"
+            app:srcCompat="@drawable/logowhite" />
 
     </LinearLayout>
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="306dp"
+            android:layout_height="218dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginBottom="100dp"
+            android:text="A mobile application called Pest Detector was created in 2022 by BSCS 4-A students at Iloilo Science and Technology University (ISATU). This mobile application uses the YOLOv5 Algorithm to identify and detect pests in lettuce plants."
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <RelativeLayout
         android:layout_width="300dp"

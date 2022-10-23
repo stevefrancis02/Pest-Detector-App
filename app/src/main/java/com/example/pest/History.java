@@ -1,5 +1,7 @@
 package com.example.pest;
 
+import static com.example.pest.Home.closeDrawer;
+
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,6 +17,9 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+        getSupportActionBar().setTitle("History");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         drawerLayout = findViewById(R.id.drawer_layout);
     }
 
@@ -25,7 +30,7 @@ public class History extends AppCompatActivity {
 
     public void ClickLogo(View view) {
 
-        Home.closeDrawer(drawerLayout);
+        closeDrawer(drawerLayout);
 
 
     }
@@ -38,7 +43,7 @@ public class History extends AppCompatActivity {
 
     public void ClickHistory(View view) {
 
-        recreate();
+        closeDrawer(drawerLayout);
     }
 
     public void ClickAboutUs(View view) {
@@ -50,7 +55,7 @@ public class History extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        Home.closeDrawer(drawerLayout);
+        closeDrawer(drawerLayout);
     }
 
 }

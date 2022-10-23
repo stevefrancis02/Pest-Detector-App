@@ -1,5 +1,7 @@
 package com.example.pest;
 
+import static com.example.pest.Home.closeDrawer;
+
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,7 +17,16 @@ public class AboutUs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
 
+        getSupportActionBar().setTitle("About");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         drawerLayout = findViewById(R.id.drawer_layout);
+    }
+
+    public void ClickLogo(View view) {
+
+        closeDrawer(drawerLayout);
+
     }
 
     public void ClickMenu(View view) {
@@ -28,13 +39,6 @@ public class AboutUs extends AppCompatActivity {
         Home.redirectActivity(this, Home.class);
     }
 
-    public void ClickLogo(View view) {
-
-        Home.closeDrawer(drawerLayout);
-
-
-    }
-
 
     public void ClickHistory(View view) {
 
@@ -43,14 +47,13 @@ public class AboutUs extends AppCompatActivity {
 
     public void ClickAboutUs(View view) {
 
-        recreate();
-
+        closeDrawer(drawerLayout);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Home.closeDrawer(drawerLayout);
+        closeDrawer(drawerLayout);
     }
 
 }
