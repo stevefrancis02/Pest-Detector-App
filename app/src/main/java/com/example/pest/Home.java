@@ -196,19 +196,22 @@ public class Home extends AppCompatActivity {
 
         redirectActivity(this,History.class);
 
+
     }
 
     public void ClickAboutUs(View view) {
 
         redirectActivity(this,AboutUs.class);
 
+
     }
 
-     public static void redirectActivity(Activity activity,Class aClass) {
+     public void redirectActivity(Activity activity, Class aClass) {
 
         Intent intent = new Intent(activity,aClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         activity.startActivity(intent);
+
 
     }
 
@@ -217,6 +220,16 @@ public class Home extends AppCompatActivity {
         super.onPause();
         closeDrawer(drawerLayout);
     }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 
 
 }
@@ -242,14 +255,6 @@ public class Home extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
 
 
     @Override
