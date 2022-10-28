@@ -114,6 +114,7 @@ public class Home extends AppCompatActivity {
                     maxPos = i;
                 }
             }
+
             String[] classes = {"Whiteflies", "Eggs" , "Larvae"};
             result.setText(classes[maxPos]);
 
@@ -223,9 +224,13 @@ public class Home extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+
+        if (drawerLayout.isDrawerOpen(GravityCompat.START))
+        {
             drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
+        }
+
+         else {
             super.onBackPressed();
         }
     }
@@ -233,7 +238,6 @@ public class Home extends AppCompatActivity {
 
 
 }
-
 
 /*    Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
