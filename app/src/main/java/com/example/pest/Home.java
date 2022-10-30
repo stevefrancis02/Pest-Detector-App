@@ -19,14 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.pest.ml.Sample;
-
-import org.tensorflow.lite.DataType;
-import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
-
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 
 @SuppressWarnings("rawtypes")
 public class Home extends AppCompatActivity {
@@ -75,7 +68,7 @@ public class Home extends AppCompatActivity {
         });
     }
 
-    public void classifyImage(Bitmap image){
+   /* public void classifyImage(Bitmap image){
         try {
             Sample model = Sample.newInstance(getApplicationContext());
 
@@ -125,7 +118,7 @@ public class Home extends AppCompatActivity {
         } catch (IOException e) {
             // TODO Handle the exception
         }
-    }
+    } */
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -138,7 +131,7 @@ public class Home extends AppCompatActivity {
                 imageView.setImageBitmap(image);
 
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-                 classifyImage(image);
+                 //classifyImage(image);
 
             } else {
                 Uri dat = data.getData();
@@ -151,7 +144,7 @@ public class Home extends AppCompatActivity {
                 }
                 imageView.setImageBitmap(image);
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-                classifyImage(image);
+                //classifyImage(image);
 
             }
         }
