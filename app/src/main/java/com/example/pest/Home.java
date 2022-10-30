@@ -68,57 +68,6 @@ public class Home extends AppCompatActivity {
         });
     }
 
-   /* public void classifyImage(Bitmap image){
-        try {
-            Sample model = Sample.newInstance(getApplicationContext());
-
-            // Creates inputs for reference.
-            TensorBuffer inputFeature0 = TensorBuffer.createFixedSize(new int[]{1, 416,416, 3}, DataType.FLOAT32);
-            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3);
-            byteBuffer.order(ByteOrder.nativeOrder());
-
-            // get 1D array of _ * _ pixels in image
-            int [] intValues = new int[imageSize * imageSize];
-            image.getPixels(intValues, 0, image.getWidth(), 0, 0, image.getWidth(), image.getHeight());
-
-            // iterate over pixels and extract R, G, and B values. Add to bytebuffer.
-            int pixel = 0;
-            for(int i = 0; i < imageSize; i++){
-                for(int j = 0; j < imageSize; j++){
-                    int val = intValues[pixel++]; // RGB
-                    byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 255.f));
-                    byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 255.f));
-                    byteBuffer.putFloat((val & 0xFF) * (1.f / 255.f));
-                }
-            }
-            inputFeature0.loadBuffer(byteBuffer);
-
-            // Runs model inference and gets result.
-            Sample.Outputs outputs = model.process(inputFeature0);
-            TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
-            int[] confidences = outputFeature0.getIntArray();
-
-            // find the index of the class with the biggest confidence.
-            int maxPos = 1;
-            int maxConfidence = 1;
-            for(int i = 0; i < confidences.length; i++){
-                if(confidences[i] > maxConfidence){
-                    maxConfidence = confidences[i];
-                    maxPos = i;
-                }
-            }
-
-            String[] classes = {"Whiteflies", "Eggs" , "Larvae"};
-            result.setText(classes[maxPos]);
-
-
-            // Releases model resources if no longer used.
-            model.close();
-
-        } catch (IOException e) {
-            // TODO Handle the exception
-        }
-    } */
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -131,7 +80,7 @@ public class Home extends AppCompatActivity {
                 imageView.setImageBitmap(image);
 
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-                 //classifyImage(image);
+
 
             } else {
                 Uri dat = data.getData();
@@ -144,7 +93,7 @@ public class Home extends AppCompatActivity {
                 }
                 imageView.setImageBitmap(image);
                 image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false);
-                //classifyImage(image);
+
 
             }
         }
