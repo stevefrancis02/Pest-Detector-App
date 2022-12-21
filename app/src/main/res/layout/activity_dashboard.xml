@@ -20,6 +20,7 @@
             android:layout_height="130dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
+            android:onClick="ClickAphid"
             app:cardUseCompatPadding="true">
 
             
@@ -46,6 +47,17 @@
                     android:layout_marginLeft="15dp"/>
 
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aphidoidea"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:textStyle="italic|normal"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="15dp"/>
+
+
 
             </RelativeLayout>
 
@@ -57,6 +69,7 @@
             android:layout_height="130dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
+            android:onClick="ClickCutworm"
             app:cardUseCompatPadding="true">
 
 
@@ -84,6 +97,16 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="15dp"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Spodoptera litura (Fabricius)"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:textStyle="italic|normal"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="15dp"/>
+
             </RelativeLayout>
 
 
@@ -95,6 +118,7 @@
             android:layout_height="130dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
+            android:onClick="ClickLeafMiners"
             app:cardUseCompatPadding="true">
 
 
@@ -122,6 +146,16 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="15dp"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agromyzidae"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:textStyle="italic|normal"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="15dp"/>
+
             </RelativeLayout>
 
 
@@ -133,6 +167,7 @@
             android:layout_height="130dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
+            android:onClick="ClickSlug"
             app:cardUseCompatPadding="true">
 
 
@@ -160,6 +195,16 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginLeft="15dp"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gastropoda"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:textStyle="italic|normal"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="15dp"/>
+
             </RelativeLayout>
 
 
@@ -171,6 +216,7 @@
             android:layout_height="130dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="5dp"
+            android:onClick="ClickWhitefly"
             app:cardUseCompatPadding="true">
 
 
@@ -196,6 +242,17 @@
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aleyrodidae
+"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:textStyle="italic|normal"
+                    android:layout_marginTop="40dp"
                     android:layout_marginLeft="15dp"/>
 
             </RelativeLayout>
