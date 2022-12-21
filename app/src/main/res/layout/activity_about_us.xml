@@ -32,7 +32,7 @@
             android:layout_height="218dp"
             android:layout_marginTop="250dp"
             android:layout_marginBottom="100dp"
-            android:text="A mobile application called Pest Detector was created in 2022 by BSCS 4-A students at Iloilo Science and Technology University (ISATU). This mobile application uses the YOLOv5 Algorithm to identify and detect pests in lettuce plants."
+            android:text="A mobile application called Pest Detector was created in 2022 by BSCS 4-A students at Iloilo Science and Technology University (ISATU). This mobile application uses the YOLOv5 Algorithm to identify and detect pests in lettuce plant."
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -16,6 +16,14 @@
         android:theme="@style/Theme.Pest"
         tools:targetApi="31">
         <activity
+            android:name=".Contact"
+            android:exported="false"
+            android:parentActivityName=".Home">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AboutUs"
             android:exported="false"
             android:parentActivityName=".Home">
@@ -24,7 +32,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".History"
+            android:name=".Dashboard"
             android:exported="false"
             android:parentActivityName=".Home">
             <meta-data

@@ -46,8 +46,6 @@ public class Home extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
 
 
-
-
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,10 +135,11 @@ public class Home extends AppCompatActivity {
 
     public void ClickHistory(View view) {
 
-        redirectActivity(this,History.class);
+        redirectActivity(this, Dashboard.class);
 
 
     }
+
 
     public void ClickAboutUs(View view) {
 
@@ -149,7 +148,15 @@ public class Home extends AppCompatActivity {
 
     }
 
-     public void redirectActivity(Activity activity, Class aClass) {
+
+    public void ClickContact (View view) {
+
+        redirectActivity(this,Contact.class);
+
+    }
+
+
+    public void redirectActivity(Activity activity, Class aClass) {
 
         Intent intent = new Intent(activity,aClass);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
